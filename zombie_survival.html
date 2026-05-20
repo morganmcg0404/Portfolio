@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Zombie Survival FPS - Morgan McGovern</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">Morgan McGovern</a>
+
+      <nav class="navbar">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#CV">CV</a>
+
+        <a href="https://github.com/morganmcg0404" target="_blank">
+          <i class="bx bxl-github"></i>
+        </a>
+      </nav>
+    </header>
+
+    <section class="project-page">
+      <div class="project-top">
+        <!-- LEFT SIDE -->
+        <div class="project-text">
+          <h1 class="project-title">
+            Zombie Survival FPS – Unity Gameplay Systems Project
+          </h1>
+
+          <p class="project-description">
+            A wave-based first-person shooter built in Unity using C#, focused
+            on scalable gameplay systems including enemy AI, combat mechanics,
+            and progression systems.
+          </p>
+
+          <div class="project-tech">
+            <span>C#</span>
+            <span>Unity</span>
+          </div>
+
+          <div class="project-links">
+          <a href="https://github.com/morganmcg0404/Comp2007" target="_blank" class="github-btn">
+          <i class='bx bxl-github'></i> View Code
+          </a>
+          </div>
+
+          <h3>Overview</h3>
+          <p>
+            This project is a wave-based zombie survival FPS designed to explore
+            gameplay system design and player progression. The core focus was
+            building scalable gameplay systems such as enemy scaling, combat
+            mechanics, and resource management, while maintaining a responsive
+            and engaging player experience. The game increases in difficulty
+            over time through dynamic enemy behaviour and stat scaling,
+            encouraging players to adapt their strategy and manage resources
+            effectively.
+          </p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li>Wave-based survival system with increasing difficulty</li>
+            <li>Multiple zombie types with progression-based spawning</li>
+            <li>FPS combat system with recoil, fire modes, and penetration</li>
+            <li>Resource management (ammo, health, armour)</li>
+            <li>Enemy scaling (health, speed, damage per wave)</li>
+            <li>ADS system with movement trade-offs</li>
+            <li>Point-based progression and upgrade system</li>
+            <li>Interactive UI for wave tracking and player stats</li>
+            <li>Dynamic enemy spawning based on player position</li>
+          </ul>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="project-video">
+          <iframe 
+    src="https://www.youtube.com/embed/bWYo_vZy1z0"
+    title="Project Video"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe>
+        </div>
+      </div>
+
+      <!-- Screenshots -->
+      <div class="project-screenshots">
+    <img src="images/Zombie1.png" onclick="openLightbox(0)">
+    <img src="images/Zombie2.png" onclick="openLightbox(1)">
+    <img src="images/Zombie3.png" onclick="openLightbox(2)">
+</div>
+
+<script>
+let currentIndex = 0;
+
+const images = [
+    "images/Zombie1.png",
+    "images/Zombie2.png",
+    "images/Zombie3.png"
+];
+
+function openLightbox(index) {
+    currentIndex = index;
+
+    const imgElement = document.getElementById("lightbox-img");
+
+    document.getElementById("lightbox").style.display = "block";
+    imgElement.src = images[currentIndex];
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+function changeSlide(direction) {
+    const imgElement = document.getElementById("lightbox-img");
+
+    currentIndex += direction;
+
+    if (currentIndex < 0) currentIndex = images.length - 1;
+    if (currentIndex >= images.length) currentIndex = 0;
+
+    // Fade out
+    imgElement.classList.add("fade-out");
+
+    setTimeout(() => {
+        imgElement.src = images[currentIndex];
+        imgElement.classList.remove("fade-out");
+    }, 300);
+}
+</script>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+
+    <div class="prev" onclick="changeSlide(-1)">❮</div>
+    <div class="next" onclick="changeSlide(1)">❯</div>
+</div>
+
+      <!-- In-depth Section -->
+      <div class="project-details">
+        <h2>Technical Breakdown</h2>
+
+        <h3>Gameplay Loop & Wave System</h3>
+        <p>
+          Designed and implemented a wave-based progression system where each
+          wave increases in difficulty through enemy scaling and spawn logic.
+          The system tracks wave progression, enemy counts, and completion
+          conditions, ensuring a consistent gameplay loop while allowing
+          difficulty to scale over time.
+        </p>
+
+        <h3>Enemy System & Scaling</h3>
+        <p>
+          Developed a modular enemy system with multiple zombie types (Walkers,
+          Joggers, Sprinters), each introduced progressively based on wave
+          number. Enemy stats such as health, movement speed, and damage scale
+          dynamically, increasing challenge while maintaining predictable
+          progression.
+        </p>
+
+        <h3>Combat System</h3>
+        <p>Implemented a first-person combat system featuring:</p>
+        <ul>
+          <li>Semi-auto and full-auto fire modes</li>
+          <li>Recoil affecting weapon accuracy</li>
+          <li>Bullet penetration through multiple enemies</li>
+        </ul>
+        <p>
+          These systems introduce mechanical depth and reward player skill and
+          positioning.
+        </p>
+
+        <h3>Player Mechanics</h3>
+        <p>
+          Developed player systems including movement, aiming, and interaction:
+        </p>
+        <ul>
+          <li>Aim Down Sights (ADS) system with accuracy improvements</li>
+          <li>Movement speed reduction while aiming to introduce trade-offs</li>
+          <li>Interaction system for pickups and environment objects</li>
+        </ul>
+        <p>These mechanics encourage tactical decision-making during combat.</p>
+
+        <h3>Resource Management</h3>
+        <p>Implemented resource systems for:</p>
+        <ul>
+          <li>Ammo management</li>
+          <li>Player health and armour</li>
+        </ul>
+        <p>
+          These systems force players to balance aggression with survival,
+          especially in later waves.
+        </p>
+
+        <h3>Spawning System</h3>
+        <p>
+          Developed a dynamic enemy spawning system that considers player
+          position and wave progression. This prevents predictable spawn
+          patterns and increases replayability while maintaining performance.
+        </p>
+
+        <h3>UI & Feedback Systems</h3>
+        <p>Designed a UI system providing real-time feedback:</p>
+        <ul>
+          <li>Current wave and remaining enemies</li>
+          <li>Player stats (health, ammo, armour)</li>
+          <li>Interaction prompts</li>
+        </ul>
+        <p>
+          Clear feedback ensures players can make informed decisions during
+          gameplay.
+        </p>
+
+        <h3>Architecture & Design</h3>
+        <p>
+          Structured the project using modular gameplay systems, separating:
+        </p>
+        <ul>
+          <li>Enemy logic</li>
+          <li>Player systems</li>
+          <li>Combat mechanics</li>
+          <li>UI</li>
+        </ul>
+        <p>
+          This approach improves maintainability and allows features to be
+          extended or modified independently.
+        </p>
+
+        <h3>Challenges</h3>
+        <p>
+          One of the main challenges was balancing difficulty scaling to ensure
+          the game remained challenging without becoming unfair. Designing enemy
+          progression and spawn logic required careful tuning to maintain player
+          engagement over multiple waves. Another challenge was integrating
+          multiple gameplay systems (combat, AI, UI, and progression) into a
+          cohesive experience without introducing bugs or unintended
+          interactions.
+        </p>
+
+        <h3>What I Learned</h3>
+        <p>This project strengthened my understanding of:</p>
+        <ul>
+          <li>Gameplay system design and balancing</li>
+          <li>AI behaviour and scaling systems</li>
+          <li>Designing engaging player progression loops</li>
+          <li>
+            Integrating multiple systems into a cohesive gameplay experience
+          </li>
+        </ul>
+        <p>
+          It also improved my ability to structure Unity projects for
+          scalability and maintainability.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Island Explorer - Morgan McGovern</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">Morgan McGovern</a>
+
+      <nav class="navbar">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#CV">CV</a>
+
+        <a href="https://github.com/morganmcg0404" target="_blank">
+          <i class="bx bxl-github"></i>
+        </a>
+      </nav>
+    </header>
+
+    <section class="project-page">
+      <div class="project-top">
+        <!-- LEFT SIDE -->
+        <div class="project-text">
+          <h1 class="project-title">
+            Island Explorer – Procedural OpenGL Game
+          </h1>
+
+          <p class="project-description">
+            A procedurally generated 3D exploration game built in C++ using
+            OpenGL 4.6, featuring dynamic terrain, real-time lighting, HDR
+            rendering, and a complete gameplay loop based around exploration and
+            coin collection.
+          </p>
+
+          <div class="project-tech">
+            <span>C++</span>
+            <span>OpenGL</span>
+          </div>
+
+          <div class="project-links">
+          <a href="https://github.com/morganmcg0404/COMP3015-CW1" target="_blank" class="github-btn">
+          <i class='bx bxl-github'></i> View Code
+          </a>
+          </div>
+
+          <h3>Overview</h3>
+          <p>
+            Island Explorer is a first-person exploration game built from the
+            ground up using OpenGL and C++, combining gameplay systems with a
+            fully featured real-time rendering pipeline. The project focuses on
+            procedural terrain generation, dynamic environmental systems such as
+            a day-night cycle and water simulation, and integrating these with
+            player interaction and game progression mechanics. The result is a
+            complete, interactive experience that demonstrates both gameplay
+            programming and advanced graphics techniques working together in a
+            cohesive system.
+          </p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li>Procedural island terrain generation with biome blending</li>
+            <li>First-person movement with physics and terrain interaction</li>
+            <li>Coin collection system with game completion state</li>
+            <li>Dynamic day-night cycle with changing lighting conditions</li>
+            <li>HDR rendering pipeline with bloom and tone mapping</li>
+            <li>Normal mapping with tangent-space lighting (TBN)</li>
+            <li>Water system with animated waves and Fresnel reflections</li>
+            <li>Post-processing effects (bloom, vignette, gamma correction)</li>
+            <li>Terrain chunk streaming for performance and scalability</li>
+            <li>HUD system with UI rendering and text display</li>
+          </ul>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/lYzSHBzQ9uM"
+            title="Project Video"
+            frameborder="0"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Screenshots -->
+      <div class="project-screenshots">
+        <img src="images/Island1.png" alt="" />
+        <img src="images/Island2.png" alt="" />
+        <img src="images/Island3.png" alt="" />
+      </div>
+
+      <!-- In-depth Section -->
+      <div class="project-details">
+        <h2>Technical Breakdown</h2>
+
+        <h3>Gameplay Systems</h3>
+        <p>
+          Implemented core gameplay mechanics including player movement,
+          jumping, sprinting, and camera control within a first-person
+          environment. A coin collection system drives the gameplay loop, with
+          proximity-based interaction, cooldown handling, and a completion state
+          once all objectives are met.
+        </p>
+
+        <h3>Procedural Terrain System</h3>
+        <p>
+          Developed a procedural terrain system using multi-layered noise
+          functions to generate natural island formations. The terrain includes
+          biome blending between plains and mountainous regions, as well as a
+          central lake formed through controlled height depression and smooth
+          falloff.
+        </p>
+
+        <h3>Terrain Streaming</h3>
+        <p>Built a full HDR rendering pipeline using OpenGL:</p>
+        <ul>
+        <li>Scene rendering to HDR framebuffer (RGBA16F)</li>
+        <li>Bright-pass filtering for bloom extraction</li>
+        <li>Multi-stage Gaussian blur</li>
+        <li>Final composition with tone mapping and gamma correction</li>
+        </ul>
+        <p>
+          This pipeline allows realistic lighting intensity while supporting
+          stylised visual effects.
+        </p>
+
+        <h3>Lighting & Shading</h3>
+        <p>
+          Implemented a Blinn-Phong lighting model using a half-vector approach
+          for efficient specular highlights. Normal mapping is applied using a
+          TBN matrix to transform tangent-space normals into world space,
+          improving surface detail without increasing geometry complexity.
+        </p>
+
+        <h3>Water System</h3>
+        <p>
+          Developed a dynamic water system using time-based sine wave functions
+          to simulate surface motion. The shader includes Fresnel-based
+          reflection, specular highlights, and transparency for a more realistic
+          appearance.
+        </p>
+
+        <h3>Day-Night Cycle</h3>
+        <p>
+          Implemented a fully dynamic day-night cycle with a 30-second loop.
+          Light direction, intensity, and colour temperature are updated each
+          frame, creating smooth transitions between daylight and nighttime
+          environments.
+        </p>
+
+        <h3>Post-Processing</h3>
+        <p>Implemented multiple post-processing effects:</p>
+        <ul>
+        <li>Bloom using separable Gaussian blur</li>
+        <li>Vignette for cinematic framing</li>
+        <li>Gamma correction for accurate colour output</li>
+        </ul>
+        <p>
+          These effects are applied in a multi-pass pipeline and combined in a
+          final composition stage.
+        </p>
+
+        <h3>Architecture & Design</h3>
+        <p>
+          The project is structured using modular systems separating gameplay
+          logic, rendering, terrain generation, and UI. This allows systems to
+          be developed independently while maintaining a clean and scalable
+          architecture.
+        </p>
+
+        <h3>Challenges</h3>
+        <p>
+          One of the main challenges was managing the complexity of the
+          rendering pipeline, particularly coordinating multiple framebuffer
+          passes and ensuring correct ordering of effects. Another challenge was
+          achieving natural-looking terrain while maintaining performance,
+          requiring careful tuning of noise functions and chunk management.
+          Integrating multiple systems such as terrain, lighting, and gameplay
+          into a cohesive experience also required careful design and debugging.
+        </p>
+
+        <h3>What I Learned</h3>
+        <p>This project strengthened my understanding of:</p>
+        <ul>
+        <li>Procedural generation techniques</li>
+        <li>HDR rendering and post-processing pipelines</li>
+        <li>Real-time lighting models and shading</li>
+        <li>Structuring larger gameplay and rendering systems</li>
+        </ul>
+        <p>
+          It also improved my ability to balance performance, visual quality,
+          and gameplay functionality in a real-time application.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

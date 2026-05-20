@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Voxel Engine - Morgan McGovern</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">Morgan McGovern</a>
+
+      <nav class="navbar">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#CV">CV</a>
+
+        <a href="https://github.com/morganmcg0404" target="_blank">
+          <i class="bx bxl-github"></i>
+        </a>
+      </nav>
+    </header>
+
+    <section class="project-page">
+      <div class="project-top">
+        <!-- LEFT SIDE -->
+        <div class="project-text">
+          <h1 class="project-title">OpenGL Voxel Terrain Engine</h1>
+
+          <p class="project-description">
+            A procedurally generated voxel terrain engine built in C++ using
+            OpenGL 4.3, featuring real-time lighting, shadow mapping, dynamic
+            day/night cycles, and interactive gameplay systems.
+          </p>
+
+          <div class="project-tech">
+            <span>C++</span>
+            <span>OpenGL</span>
+          </div>
+
+          <div class="project-links">
+          <a href="https://github.com/morganmcg0404/COMP3016-CW2" target="_blank" class="github-btn">
+          <i class='bx bxl-github'></i> View Code
+          </a>
+          </div>
+
+          <h3>Overview</h3>
+          <p>
+            This project is a first-person voxel exploration system inspired by
+            sandbox-style environments, built from the ground up using OpenGL
+            and C++. The focus of the project was to combine gameplay systems
+            with low-level graphics programming, including procedural terrain
+            generation, real-time lighting, and scalable world management
+            through chunk-based streaming. This project was selected as showcase
+            work for university open days, demonstrating its technical depth and
+            visual quality to prospective students.
+          </p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li>Procedural voxel terrain generation with multiple biomes</li>
+            <li>Chunk-based world streaming system for infinite terrain</li>
+            <li>Real-time lighting with shadow mapping (PCF filtering)</li>
+            <li>Dynamic day/night cycle with moving light sources</li>
+            <li>First-person movement system with physics and collision</li>
+            <li>Block interaction using raycasting</li>
+            <li>AI entities with basic pathfinding behaviour</li>
+            <li>Interactive GUI for real-time parameter adjustment</li>
+          </ul>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/nIJZHdRFdtY"
+            title="Project Video"
+            frameborder="0"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Screenshots -->
+      <div class="project-screenshots">
+        <img src="images/Voxel1.png" alt="" />
+        <img src="images/Voxel2.png" alt="" />
+        <img src="images/Voxel3.png" alt="" />
+      </div>
+
+      <!-- In-depth Section -->
+      <div class="project-details">
+        <h2>Technical Breakdown</h2>
+
+        <h3>Gameplay Systems</h3>
+        <p>
+          Implemented core gameplay systems including player movement, physics,
+          and interaction within a voxel-based world. Movement includes
+          sprinting, crouching, jumping, and collision detection, with gravity
+          applied each frame. Interaction is handled through a raycasting
+          system, allowing players to destroy blocks within a defined range.
+        </p>
+
+        <h3>Procedural Terrain Generation</h3>
+        <p>
+          Developed a procedural terrain system using multi-octave noise
+          functions to generate natural height variation. Terrain is generated
+          per chunk, with biome regions determined from world coordinates. Each
+          biome applies different terrain characteristics, allowing variation
+          across the generated world.
+        </p>
+
+        <h3>Chunk Streaming System</h3>
+        <p>
+          Implemented a chunk-based world system to support infinite terrain
+          generation. Chunks are dynamically loaded and unloaded based on player
+          position using a render distance check. This ensures only nearby
+          terrain is kept in memory, improving performance and scalability.
+        </p>
+
+        <h3>Rendering & Lighting</h3>
+        <p>
+          Built a custom OpenGL rendering pipeline supporting real-time lighting
+          and shadow mapping. A two-pass rendering approach is used, with the
+          first pass generating a depth map from the light’s perspective and the
+          second pass applying lighting and shadows using PCF filtering.
+        </p>
+
+        <h3>Day/Night Cycle</h3>
+        <p>
+          Implemented a continuous day/night cycle driven by time progression.
+          Light direction and intensity are calculated using trigonometric
+          functions, allowing smooth transitions between daylight and nighttime
+          lighting conditions.
+        </p>
+
+        <h3>AI & Interaction Systems</h3>
+        <p>
+          Developed basic AI entities including roaming NPCs and a companion
+          system. Entities can be spawned dynamically and interact with the
+          world, demonstrating integration between gameplay systems and world
+          simulation.
+        </p>
+
+        <h3>Architecture & Design</h3>
+        <p>
+          Structured the project using object-oriented design and common
+          programming patterns, including:
+        </p>
+        <li>Component-based separation of systems</li>
+        <li>Factory pattern for terrain generation</li>
+        <li>Object pooling for chunk management</li>
+        <li>Observer pattern for input handling</li>
+        <p>
+          This allowed systems such as rendering, terrain generation, and
+          gameplay logic to remain modular and maintainable.
+        </p>
+
+        <h3>Challenges</h3>
+        <p>
+          One of the main challenges was managing complexity within the
+          rendering pipeline, particularly debugging framebuffer and shadow
+          mapping issues. Another challenge was ensuring smooth terrain
+          generation across chunk boundaries, as inconsistencies in procedural
+          noise led to visible seams and height variation issues. Collision
+          detection also presented difficulties, especially in edge cases such
+          as movement in confined voxel spaces.
+        </p>
+
+        <h3>What I Learned</h3>
+        <p>This project significantly improved my understanding of:</p>
+        <li>Real-time rendering pipelines in OpenGL</li>
+        <li>Procedural generation techniques</li>
+        <li>Designing scalable gameplay systems</li>
+        <li>Debugging complex graphical and system-level issues</li>
+        <p>
+          It also strengthened my ability to structure larger projects using
+          maintainable architecture and reusable components.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

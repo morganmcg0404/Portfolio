@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Arena Game - Morgan McGovern</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">Morgan McGovern</a>
+
+      <nav class="navbar">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#CV">CV</a>
+
+        <a href="https://github.com/morganmcg0404" target="_blank">
+          <i class="bx bxl-github"></i>
+        </a>
+      </nav>
+    </header>
+
+    <section class="project-page">
+      <div class="project-top">
+        <!-- LEFT SIDE -->
+        <div class="project-text">
+          <h1 class="project-title">Stylised OpenGL Arena Game</h1>
+
+          <p class="project-description">
+            A real-time OpenGL action scene built in C++, combining gameplay
+            systems with stylised rendering techniques including toon shading,
+            shadow mapping, and post-processing effects.
+          </p>
+
+          <div class="project-tech">
+            <span>C++</span>
+            <span>OpenGL</span>
+          </div>
+
+          <div class="project-links">
+          <a href="https://github.com/morganmcg0404/COMP3015-CW2" target="_blank" class="github-btn">
+          <i class='bx bxl-github'></i> View Code
+          </a>
+          </div>
+
+          <h3>Overview</h3>
+          <p>
+            This project is a small-scale arena game built using OpenGL,
+            extending a basic coursework scene into a fully interactive gameplay
+            experience. The focus was to integrate gameplay systems such as
+            combat, AI, and resource management with a multi-pass rendering
+            pipeline, combining stylised shading techniques with real-time
+            effects. The final result demonstrates how rendering techniques can
+            support gameplay presentation rather than existing purely as
+            isolated visual features.
+          </p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li>First-person movement with jumping and sprinting</li>
+            <li>Fireball-based combat system with particle effects</li>
+            <li>Enemy AI with basic pursuit behaviour</li>
+            <li>Mana system with regeneration and resource management</li>
+            <li>Toon shading with integrated shadow mapping</li>
+            <li>Shadow mapping with PCF filtering</li>
+            <li>Post-processing pipeline (bloom, vignette, edge detection)</li>
+            <li>Screen-space outline effect using depth + normal buffers</li>
+            <li>HUD system displaying health, mana, score, and time</li>
+            <li>
+              Real-time toggling of visual effects for debugging and comparison
+            </li>
+          </ul>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="project-video">
+          <iframe
+            src="https://www.youtube.com/embed/1AH57rBmCLQ"
+            title="Project Video"
+            frameborder="0"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Screenshots -->
+      <div class="project-screenshots">
+        <img src="images/Wizard1.png" alt="" />
+        <img src="images/Wizard2.png" alt="" />
+        <img src="images/Wizard3.png" alt="" />
+      </div>
+
+      <!-- In-depth Section -->
+      <div class="project-details">
+        <h2>Technical Breakdown</h2>
+
+        <h3>Gameplay Systems</h3>
+        <p>
+          Implemented a set of gameplay systems including player movement,
+          combat, and resource management. The player can move freely within the
+          arena, jump, sprint, and attack using fireball projectiles. Fireballs
+          consume mana, introducing a resource constraint that influences
+          gameplay decisions.
+        </p>
+
+        <h3>Combat & Interaction</h3>
+        <p>
+          Developed a projectile-based combat system where fireballs are
+          spawned, updated, and interact with enemies. Particle effects are used
+          to enhance visual feedback, including fire trails and explosion
+          effects upon impact.
+        </p>
+
+        <h3>Rendering Pipeline</h3>
+        <p>Built a multi-stage rendering pipeline using OpenGL:</p>
+        <li>Scene rendering pass with lighting</li>
+        <li>Shadow mapping pass using a depth texture</li>
+        <li>Post-processing stage for final image composition</li>
+        <p>
+          This separation allows multiple visual effects to be layered while
+          maintaining a structured rendering flow.
+        </p>
+
+        <h3>Toon Shading & Stylisation</h3>
+        <p>
+          Implemented a toon shading model by quantising lighting into discrete
+          bands, creating a stylised, non-photorealistic look. Shadow
+          information is integrated into the toon shader, allowing the scene to
+          maintain depth while preserving the stylised aesthetic.
+        </p>
+
+        <h3>Shadow Mapping</h3>
+        <p>
+          Shadows are generated using a depth pass rendered from the light’s
+          perspective. Percentage-closer filtering (PCF) is applied to smooth
+          shadow edges and reduce aliasing artefacts.
+        </p>
+
+        <h3>Post-Processing Effects</h3>
+        <p>A post-processing pipeline applies multiple screen-space effects:</p>
+        <li>Bloom for bright light bleeding</li>
+        <li>Vignette for visual focus</li>
+        <li>Edge detection using depth and normal buffers</li>
+        <p>
+          These effects are combined in a final composition pass before
+          presenting the frame.
+        </p>
+
+        <h3>HUD & UI Systems</h3>
+        <p>
+          Implemented a HUD system displaying gameplay information including:
+        </p>
+        <li>Health</li>
+        <li>Mana</li>
+        <li>Score</li>
+        <li>Time</li>
+        <p>
+          The HUD is rendered as a screen overlay after the main scene rendering
+          pass.
+        </p>
+
+        <h3>Architecture & Design</h3>
+        <p>
+          The project is structured to separate gameplay logic, rendering, and
+          UI systems. This modular approach allows features such as rendering
+          effects and gameplay mechanics to be developed and modified
+          independently.
+        </p>
+
+        <h3>Challenges</h3>
+        <p>
+          One of the main challenges was integrating multiple rendering
+          techniques into a single pipeline without conflicts, particularly when
+          combining shadow mapping, toon shading, and post-processing. Managing
+          OpenGL state and debugging shader interactions required careful
+          sequencing of rendering passes. Another challenge was balancing
+          gameplay systems with rendering performance, ensuring that visual
+          effects did not negatively impact responsiveness.
+        </p>
+
+        <h3>What I Learned</h3>
+        <p>This project significantly improved my understanding of:</p>
+        <li>Multi-pass rendering pipelines</li>
+        <li>Stylised shading techniques</li>
+        <li>Integrating gameplay systems with rendering</li>
+        <li>Debugging complex OpenGL and shader issues</li>
+        <p>
+          It also reinforced the importance of structuring projects to support
+          both visual and gameplay features effectively.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>
